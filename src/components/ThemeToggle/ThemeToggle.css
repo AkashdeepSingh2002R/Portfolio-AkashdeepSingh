@@ -1,0 +1,14 @@
+
+.theme-toggle-icon {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 12px;
+  transition: transform 0.2s;
+}
+
+.theme-toggle-icon:hover {
+  transform: scale(1.2);
+}
