@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Navbar.css';
 
 const Navbar = ({ darkMode, setDarkMode }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(true);
 
   return (
     <nav className="navbar">
