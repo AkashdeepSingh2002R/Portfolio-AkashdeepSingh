@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.css";
+import { Link } from "react-router-dom";
 
 const Hero = () => (
   <section className="hero" id="home">
@@ -7,10 +8,13 @@ const Hero = () => (
       <h1 className="hero-name">Hi, I'm Akashdeep Singh</h1>
       <p className="hero-title">Full-Stack Developer | MERN Stack | Open to Work</p>
       <div className="cta-buttons">
-        <a href="/projects" className="btn">Explore Projects</a>
-        <a href="/about" className="btn">About Me</a>
-        <a href="/contact" className="btn">Contact</a>
-        <a href="/Akashdeep_Singh_Resume.docx" className="btn" target="_blank" rel="noopener noreferrer">View Resume</a>
+        <Link to="/projects" className="btn">Explore Projects</Link>
+        <Link to="/about" className="btn">About Me</Link>
+        <Link to="/contact" className="btn">Contact</Link>
+        {/* keep resume as a normal link since it’s a file download */}
+        <a href="/Akashdeep_Singh_Resume.docx" className="btn" target="_blank" rel="noopener noreferrer">
+          View Resume
+        </a>
       </div>
     </div>
   </section>
