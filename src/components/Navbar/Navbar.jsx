@@ -1,37 +1,33 @@
-import React, { useState } from 'react';
-import './Navbar.css';
+import React, { useState } from "react";
+import "./Navbar.css";
+import { NavLink } from "react-router-dom";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className="navbar">
       <div className="logo">Akashdeep Singh</div>
 
-      <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
+
+      <ul className={`nav-links ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(false)}>
+        <li><NavLink to="/" end>Home</NavLink></li>
+        <li><NavLink to="/about">About</NavLink></li>
+        <li><NavLink to="/projects">Projects</NavLink></li>
+        <li><NavLink to="/contact">Contact</NavLink></li>
         <li>
           <button
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={(e) => { e.stopPropagation(); setDarkMode(!darkMode); }}
             className="theme-toggle-btn"
             title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           >
             {darkMode ? '☀️' : '🌙'}
           </button>
         </li>
-      </div>
-
-      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-        <span className="bar"></span>
-        <span className="bar"></span>
-        <span className="bar"></span>
-      </div>
+      </ul>
     </nav>
   );
-};
+}
 
 export default Navbar;

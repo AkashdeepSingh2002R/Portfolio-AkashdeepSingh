@@ -2,52 +2,53 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import About from "./components/About/About";
-import Skills from "./components/Skills/Skills";
-import Projects from "./components/Projects/Projects";
-import Testimonials from "./components/Testimonials/Testimonials";
-import Contact from "./components/Contacts/Contacts"; // keep your existing path
 import Footer from "./components/Footer/Footer";
+import { Outlet } from "react-router-dom";
+
+const THEME_KEY = "theme"; // "dark" | "light"
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem("theme");
-    return saved ? saved === "dark" : false; // default to light
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved === "dark" || saved === "light") return saved === "dark";
+    // fallback to system preference on first load
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   });
 
-  // Set theme on first mount (in case CSS loads before state sync)
- // Set theme on first mount (in case CSS loads before state sync)
-useEffect(() => {
-  const saved = localStorage.getItem("theme");
-  const isDark = saved ? saved === "dark" : darkMode;
-
-  document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
-  document.documentElement.classList.toggle("dark", isDark);
-  document.body.classList.toggle("dark", isDark);
-
-  setDarkMode(isDark);
-}, []); // empty dependency array, no eslint disable needed
-
-
-  // Whenever darkMode changes, sync it to <html>/<body> and localStorage
+  // Sync class & data attributes to BOTH <html> and <body> (covers all CSS strategies)
   useEffect(() => {
-    const theme = darkMode ? "dark" : "light";
-    localStorage.setItem("theme", theme);
-    document.documentElement.setAttribute("data-theme", theme);
-    document.documentElement.classList.toggle("dark", darkMode);
-    document.body.classList.toggle("dark", darkMode);
+    const root = document.documentElement; // <html>
+    const body = document.body;
+
+    // single source of truth for CSS selectors:
+    // - html.dark / body.dark-mode
+    // - [data-theme="dark"] / [data-theme="light"]
+    root.classList.toggle("dark", darkMode);
+    root.classList.toggle("light", !darkMode);
+    root.setAttribute("data-theme", darkMode ? "dark" : "light");
+
+    body.classList.toggle("dark-mode", darkMode);
+    body.setAttribute("data-theme", darkMode ? "dark" : "light");
+
+    // persist
+    localStorage.setItem(THEME_KEY, darkMode ? "dark" : "light");
   }, [darkMode]);
 
+  // (Optional) react to OS theme changes when user hasn't explicitly chosen
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const handler = () => {
+      const saved = localStorage.getItem(THEME_KEY);
+      if (!saved) setDarkMode(mq.matches);
+    };
+    mq.addEventListener?.("change", handler);
+    return () => mq.removeEventListener?.("change", handler);
+  }, []);
+
   return (
-    <div className={`App ${darkMode ? "dark-mode" : ""}`}>
+    <div className={`App${darkMode ? " dark-mode" : ""}`}>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Testimonials />
-      <Contact />
+      <Outlet />
       <Footer />
     </div>
   );
