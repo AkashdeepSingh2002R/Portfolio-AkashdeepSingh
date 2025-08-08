@@ -1,48 +1,71 @@
-import React from 'react';
-import '../../App.css';
-import profileImg from '../../assets/profile.jpg';
+import React from "react";
+import "./Skills.css";
 
-const Skills = () => (
-  <section className="skills" id="skills">
-        <h2 className="section-title">Skills & Technologies</h2>
-        <div className="skills-grid">
-          <div className="skills-bars">
-            {[
-              { label: "JavaScript (ES6+)", percent: 90 },
-              { label: "React.js", percent: 85 },
-              { label: "Node.js", percent: 80 },
-              { label: "MongoDB", percent: 75 },
-              { label: "HTML5/CSS3", percent: 85 }
-            ].map(skill => (
-              <div className="skill-item" key={skill.label}>
-                <div className="skill-header">
-                  <span>{skill.label}</span>
-                  <span>{skill.percent}%</span>
-                </div>
-                <div className="skill-bar">
-                  <div className="skill-progress" style={{ width: skill.percent + '%' }}></div>
-                </div>
-              </div>
-            ))}
-          </div>
+const buckets = [
+  {
+    title: "Core · MEAN",
+    items: [
+      { name: "React", level: 3 },
+      { name: "JavaScript", level: 3 },
+      { name: "Node.js", level: 3 },
+      { name: "Express", level: 3 },
+      { name: "MongoDB", level: 2 },
+     
+    ],
+  },
+  {
+    title: "Frontend",
+    items: [
+      { name: "HTML5", level: 3 },
+      { name: "CSS3", level: 3 },
+      { name: "Responsive UI", level: 3 },
+      { name: "Accessibility (a11y)", level: 2 },
+      { name: "Bootstrap", level: 2 },
+      {name:"tailwind", level:2},
+    ],
+  },
+  {
+    title: "Tools & Practices",
+    items: [
+      { name: "Git / GitHub", level: 3 },
+      { name: "REST APIs", level: 3 },
+      { name: "Postman", level: 2 },
+      { name: "JWT/Auth", level: 2 },
+      { name: "Basic CI/CD", level: 1 },
+      { name: "SQL (basics)", level: 1 },
+    ],
+  },
+];
 
-          <div className="tech-network">
-            {[
-              { label: "MERN", className: "center" },
-              { label: "React", style: { top: "0", left: "50%", transform: "translateX(-50%)" } },
-              { label: "Node", style: { top: "50%", right: "0", transform: "translateY(-50%)" } },
-              { label: "MongoDB", style: { bottom: "0", left: "50%", transform: "translateX(-50%)" } },
-              { label: "Express", style: { top: "50%", left: "0", transform: "translateY(-50%)" } },
-              { label: "Git", style: { top: "20%", left: "20%" } },
-              { label: "Postman", style: { top: "20%", right: "20%" } },
-              { label: "Bootstrap", style: { bottom: "20%", left: "20%" } },
-              { label: "SQL", style: { bottom: "20%", right: "20%" } }
-            ].map((node, idx) => (
-              <div key={idx} className={`tech-node ${node.className || ''}`} style={node.style}>{node.label}</div>
-            ))}
-          </div>
-        </div>
-      </section>
-);
+export default function Skills() {
+  return (
+    <section className="skills section" id="skills" aria-labelledby="skills-title">
+      <h2 className="section-title" id="skills-title">Skills &amp; Technologies</h2>
 
-export default Skills;
+      <div className="skills-grid-new">
+        {buckets.map((b) => (
+          <article className="skill-card" key={b.title}>
+            <h3 className="skill-card-title">{b.title}</h3>
+
+            <ul className="badge-list">
+              {b.items.map(({ name, level }) => (
+                <li className="badge" key={name}>
+                  <span className="badge-label">{name}</span>
+                  <span className="dots" aria-label={`Proficiency: ${level} of 3`}>
+                    <span className={level >= 1 ? "dot on" : "dot"} />
+                    <span className={level >= 2 ? "dot on" : "dot"} />
+                    <span className={level >= 3 ? "dot on" : "dot"} />
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+      <p className="skills-note">
+        <strong>Legend:</strong> ● basic · ●● working · ●●● advanced
+      </p>
+    </section>
+  );
+}

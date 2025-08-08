@@ -22,16 +22,21 @@ const About = () => (
             </div>
           </div>
           <div className="about-text">
-            <p className="about-intro">Diploma Student | Georgian College | Etobicoke, ON</p>
-            <p>
-              Detail-oriented and ambitious React Developer with strong knowledge of front-end technologies and hands-on experience in full-stack projects. Currently on a Canadian work permit and seeking entry-level opportunities in the tech sector.
-            </p>
-            <p>
-              Adept at building responsive, interactive web applications using React.js, HTML, CSS, and integrating backend services using Node.js and MongoDB.
-            </p>
-            <p>
-              Known for quickly learning new technologies and applying them effectively in real-world scenarios.
-            </p>
+           <p>
+  I’m a full-stack developer focused on building clean, accessible web apps with the
+  <strong> MERN stack (MongoDB, Express, React, Node.js)</strong>. Based in Etobicoke, ON,
+  I recently completed a diploma at Georgian College and I’m open to full-time roles.
+</p>
+<p>
+  I turn product ideas into fast, reliable applications—designing React front-ends,
+  building secure REST APIs with Node.js/Express, and working with MongoDB for data models,
+  aggregation, and performance. I’m comfortable with JavaScript, Git, and basic CI/CD.
+</p>
+<p>
+  Beyond code, I communicate clearly, write tidy commits, and keep performance and
+  accessibility front-of-mind. I learn fast and ship iteratively with feedback.
+</p>
+
           </div>
         </div>
       </section>

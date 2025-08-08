@@ -238,7 +238,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #5a8dee;
-            filter: grayscale(100%) brightness(0.8);
+            filter:  brightness(0.8);
             transition: all 0.4s ease;
         }
         
@@ -465,6 +465,11 @@
         .project-link:hover {
             background: rgba(90, 141, 238, 0.1);
         }
+        .section-title {
+  width: min(1100px, 92vw);
+  margin: 0 auto 12px;   /* centers it and adds a small gap */
+  text-align: left;      /* ensure left-aligned */
+}
         
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -480,3 +485,168 @@
             .hero-name { font-size: 2.5rem; }
             .hero-title { font-size: 2rem; }
         }
+        /* THEME TOKENS (light defaults) */
+:root {
+  --content-max: 1100px;
+
+  --surface: #ffffff;
+  --surface-2: #f7f9fc;
+  --text: #0b1220;
+  --muted-text: #364152;
+  --border: rgba(0,0,0,.12);
+  --elev: 0 8px 20px rgba(0,0,0,.10);
+  --backdrop: rgba(10,15,30,.45);
+  --primary: #4f8cff;
+}
+
+/* Dark mode override – supports either [data-theme="dark"] or .dark */
+[data-theme="dark"], .dark {
+  --surface: #0f1624;
+  --surface-2: #141b2a;
+  --text: #e8eefc;
+  --muted-text: rgba(232,238,252,.8);
+  --border: rgba(255,255,255,.12);
+  --elev: 0 8px 20px rgba(0,0,0,.35);
+  --backdrop: rgba(0,0,0,.75);
+}
+
+/* Consistent section title width + spacing */
+.section-title {
+  width: min(var(--content-max), 92vw);
+  margin: 0 auto 14px;
+  text-align: left;
+}
+
+/* Give all sections even breathing room (keeps your existing .section, just ensures min) */
+.section { padding-top: max(48px, 8vh); padding-bottom: 56px; }
+:root{
+  --content-max:1100px;
+  --surface:#fff; --surface-2:#f7f9fc;
+  --text:#0b1220; --muted-text:#364152;
+  --border:rgba(0,0,0,.12);
+  --elev:0 8px 20px rgba(0,0,0,.10);
+  --backdrop:rgba(10,15,30,.45);
+  --primary:#4f8cff;
+}
+[data-theme="dark"], .dark{
+  --surface:#0f1624; --surface-2:#141b2a;
+  --text:#e8eefc; --muted-text:rgba(232,238,252,.82);
+  --border:rgba(255,255,255,.12);
+  --elev:0 8px 20px rgba(0,0,0,.35);
+  --backdrop:rgba(0,0,0,.75);
+}
+.section-title{width:min(var(--content-max),92vw);margin:0 auto 14px;text-align:left;}
+.section{padding-top:max(48px,8vh);padding-bottom:56px;}
+/* --- Dark-mode fixes for section wrappers still showing white --- */
+[data-theme="dark"] .section,
+.dark .section,
+[data-theme="dark"] .projects,
+.dark .projects,
+[data-theme="dark"] .skills,
+.dark .skills,
+[data-theme="dark"] #reviews,
+.dark #reviews,
+[data-theme="dark"] #contact,
+.dark #contact {
+  background: transparent !important;   /* kill any old #fff */
+}
+
+/* If any inner container had hard-coded white, neutralize it too */
+[data-theme="dark"] .section > .container,
+.dark .section > .container {
+  background: transparent !important;
+}
+
+/* Inputs in dark mode (in case they stayed white) */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+.dark input,
+.dark textarea {
+  background: rgba(0,0,0,.25) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+/* ==== FORCE DARK SURFACES FOR NON-HOME/ABOUT SECTIONS ==== */
+/* Match dark mode no matter where it's applied (html/body/or data-theme) */
+html.dark .section,
+body.dark .section,
+[data-theme="dark"] .section,
+html.dark .projects,
+body.dark .projects,
+[data-theme="dark"] .projects,
+html.dark .skills,
+body.dark .skills,
+[data-theme="dark"] .skills,
+html.dark #reviews,
+body.dark #reviews,
+[data-theme="dark"] #reviews,
+html.dark #contact,
+body.dark #contact,
+[data-theme="dark"] #contact {
+  background: transparent !important; /* kill any leftover white wrappers */
+}
+
+/* Cards: make them dark and readable */
+html.dark .project-card,
+body.dark .project-card,
+[data-theme="dark"] .project-card,
+html.dark .skill-card,
+body.dark .skill-card,
+[data-theme="dark"] .skill-card,
+html.dark .t-card,
+body.dark .t-card,
+[data-theme="dark"] .t-card,
+html.dark .t-form-wrap,
+body.dark .t-form-wrap,
+[data-theme="dark"] .t-form-wrap,
+html.dark .contact-form,
+body.dark .contact-form,
+[data-theme="dark"] .contact-form,
+html.dark .contact-side,
+body.dark .contact-side,
+[data-theme="dark"] .contact-side {
+  background: #141b2a !important;
+  color: #e8eefc !important;
+  border-color: rgba(255,255,255,.12) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,.35) !important;
+}
+
+/* Badges / secondary elements inside those cards */
+html.dark .badge,
+body.dark .badge,
+[data-theme="dark"] .badge,
+html.dark .tech-badge,
+body.dark .tech-badge,
+[data-theme="dark"] .tech-badge,
+html.dark .pm-badge,
+body.dark .pm-badge,
+[data-theme="dark"] .pm-badge {
+  background: rgba(255,255,255,.06) !important;
+  color: #e8eefc !important;
+  border-color: rgba(255,255,255,.14) !important;
+}
+
+/* Inputs in dark */
+html.dark input,
+body.dark input,
+[data-theme="dark"] input,
+html.dark textarea,
+body.dark textarea,
+[data-theme="dark"] textarea {
+  background: rgba(0,0,0,.25) !important;
+  color: #e8eefc !important;
+  border-color: rgba(255,255,255,.18) !important;
+}
+
+/* Modal backdrop/card in dark */
+html.dark .pm-backdrop,
+body.dark .pm-backdrop,
+[data-theme="dark"] .pm-backdrop { background: rgba(0,0,0,.75) !important; }
+
+html.dark .pm-card,
+body.dark .pm-card,
+[data-theme="dark"] .pm-card {
+  background: #0f1624 !important;
+  color: #e8eefc !important;
+  border-color: rgba(255,255,255,.12) !important;
+}

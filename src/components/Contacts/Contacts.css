@@ -1,0 +1,79 @@
+/* Same width and spacing as other sections */
+.contact-grid {
+  width: min(var(--content-max), 92vw);
+  margin: 12px auto 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+}
+
+/* The two cards */
+.contact-form, .contact-side {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--elev);
+  color: var(--text);
+}
+
+.contact-form label { display: grid; gap: 6px; margin-bottom: 10px; }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  background: rgba(0,0,0,.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  color: var(--text);
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+/* --- Contact list: clean bullets, aligned icons, theme-aware --- */
+.contact-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: grid;
+  gap: 8px;
+}
+
+.contact-links li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* If your links include emoji or inline SVGs, this keeps them aligned */
+.contact-links li > * {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-links a {
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 6px 8px;
+  transition: color .15s ease, background .15s ease;
+}
+
+.contact-links a:hover {
+  color: var(--primary);
+  background: color-mix(in srgb, var(--surface-2) 85%, transparent);
+}
+
+/* Optional: show small dot bullets consistently */
+.contact-links li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--text) 40%, transparent);
+}
+
+@media (max-width: 980px) { .contact-grid { grid-template-columns: 1fr; } }

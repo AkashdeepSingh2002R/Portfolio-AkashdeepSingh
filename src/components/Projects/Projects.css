@@ -1,1 +1,96 @@
-/* Styles for Projects component */
+.projects-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:20px;width:min(var(--content-max),92vw);margin:0 auto;
+}
+.project-card{
+  background:var(--surface-2);border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .2s ease, box-shadow .2s ease; box-shadow:var(--elev); color:var(--text);
+}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.35);}
+.project-image img{width:100%;height:180px;object-fit:cover;}
+.project-content{padding:16px;display:flex;flex-direction:column;flex:1;}
+.project-title{font-size:1.15rem;font-weight:700;margin-bottom:8px;color:var(--text);}
+.project-desc{font-size:.95rem;color:var(--muted-text);margin-bottom:12px;flex-grow:1;}
+
+.tech-stack{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+.tech-badge{
+  padding:4px 10px;border-radius:999px;font-size:.8rem;font-weight:500;
+  background:color-mix(in srgb,var(--surface-2) 92%, transparent);
+  color:var(--text);border:1px solid var(--border);
+}
+
+/* Keep your colored overrides; they sit on top nicely */
+.tech-react{background:#206eff;color:#fff;}
+.tech-node.js{background:#026e00;color:#fff;}
+.tech-mongodb{background:#116149;color:#fff;}
+.tech-rest-api{background:#00758f;color:#fff;}
+.tech-netlify{background:#0e7c7b;color:#fff;}
+.tech-css{background:#264de4;color:#fff;}
+.tech-angular-router{background:#c3002f;color:#fff;}
+
+.project-links{display:flex;gap:10px;}
+.btn{padding:8px 14px;border-radius:8px;font-size:.88rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:background .15s ease, transform .15s ease;}
+.btn-primary{background:var(--primary);color:#0b1220;border:none;}
+.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border);}
+.btn:hover{transform:translateY(-1px);}
+/* --- Project action buttons: consistent + readable --- */
+.project-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.project-links .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  line-height: 1;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease, opacity .15s ease;
+  box-shadow: var(--elev);
+}
+
+/* Primary = Live Demo */
+.project-links .btn.btn-primary {
+  background: var(--primary);
+  color: #0b1220; /* ink on primary */
+  border: none;
+}
+
+/* Secondary = GitHub / More details */
+.project-links .btn.btn-secondary {
+  background: color-mix(in srgb, var(--surface-2) 92%, transparent);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.project-links .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.18);
+  opacity: .96;
+}
+
+/* Make icons inside buttons consistent */
+.project-links .btn img,
+.project-links .btn svg {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+/* Disabled state, if you ever need it */
+.project-links .btn[disabled],
+.project-links .btn.disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
