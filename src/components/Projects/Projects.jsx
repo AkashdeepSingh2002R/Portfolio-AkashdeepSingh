@@ -9,21 +9,21 @@ import primeplusImg from "../../assets/primeplus.png";
 const projects = [
   {
     title: "NeighbourNet - Social Housing Platform",
-    subtitle: "MERN app for listings, communities, and weather.",
-    description: "A full-featured MERN stack app that allows users to post housing info, join communities, and view weather updates.",
+    subtitle: "Social media network for neighbours",
+    description: "A full-featured MERN stack app that allows users to interact with neighbours, post housing info, join communities, and view weather updates. TO test use this credentials - email - test@gmail.com password-111111",
     image: neighbourImg,
     tech: ["React", "Node.js", "Express", "MongoDB", "REST API"],
-    live: "https://your-live-demo-link.com",
-    github: "https://github.com/yourusername/neighbournet",
+    live: "https://remarkable-pithivier-c497c5.netlify.app/welcome",
+    github: "https://github.com/AkashdeepSingh2002R/NeighbourNet",
     features: [
       "Role-based auth (JWT), protected routes",
-      "Post, edit, and bookmark listings",
+      "make your neighbours your friends",
       "Community join/leave, comment threads",
       "Weather API integration per location",
       "Deployed on Netlify/Render",
     ],
     responsibilities: [
-      "Designed Angular UI & state management (RxJS)",
+      "Designed React UI & state management (RxJS)",
       "Built Express API with MongoDB (Mongoose)",
       "JWT-based auth and guards",
       "Wrote unit tests for core services",
