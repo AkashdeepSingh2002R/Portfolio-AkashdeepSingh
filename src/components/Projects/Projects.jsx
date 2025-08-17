@@ -6,6 +6,7 @@ import ProjectModal from "../ProjectModal/ProjectModal";
 import neighbourImg from "../../assets/neighbournet.png";
 import primeplusImg from "../../assets/sms.png"; // keep import, just reusing it as the image slot
 import worldWideImg from "../../assets/worldwise.png"
+import jobtrackerImg from "../../assets/AI_job_tracker.png"
 
 const projects = [
   {
@@ -31,48 +32,54 @@ const projects = [
       "Wrote unit tests for core services",
     ],
   },
-  {
-    title: "School Management System (React + Vite)",
-    subtitle: "Punjab School of Excellence — role-based demo",
-    description:
-      "Frontend-only School Management System built with React + Vite. Includes role-based login (Admin/Teacher/Student/Parent), an Admin dashboard with tabs, search across students/classes/staff, student & staff detail views, and an announcements module (create + list). Data is stored in local JS modules; auth state persists via localStorage.",
-    image: primeplusImg, // replace with a real screenshot when you have one
-    tech: ["React", "Vite", "React Router", "CSS Modules"],
-    live: "https://worldwiseadventureapp.netlify.app/", // add your Netlify link if/when deployed
-    github: "https://github.com/AkashdeepSingh2002R/SchoolManagementSystem",
-    features: [
-      "Role-based login & routing (admin/teacher/student/parent)",
-      "Admin Dashboard with sidebar tabs: Home, Students, Staff, Classes, Announcement",
-      "Unified search: students, classes, teachers",
-      "Student/Staff/Class detail pages (React Router params)",
-      "Announcements: add title/description/author; render list",
-      "Local JS datasets (students, staff, classes, news)",
-      "Responsive NavBar with hamburger menu, CSS Modules styling",
-      "State saved in localStorage (logged-in user)",
-    ],
-    responsibilities: [
-      "Implemented routing and guard-like redirects via React Router",
-      "Built Admin dashboard layout with reusable card components",
-      "Designed search logic across multiple datasets",
-      "Wired announcement form and list with local state",
-      "Structured datasets (students/staff/classes/news) for demo",
-      "Created responsive UI with CSS Modules",
-    ],
-    credentials: [
-      "Admin: admin@punjabschool.edu.in / admin123",
-      "Teacher: teacher@punjabschool.edu.in / teacher123",
-      "Student: student@punjabschool.edu.in / student123",
-    ],
-  },
+{
+  title: "School Management System — Full-Stack (React + Node)",
+  subtitle: "BlueBell Public school | Role-based portal with AI & translation",
+  description:
+    "Full-stack School Management System with secure auth, role-based dashboards (Admin/Teacher/Student/Parent), attendance & timetable, assignments, announcements, newsletters, events, meetings, messaging, grades, and built-in AI helpers for announcements/newsletters/assignments plus one-click translation.",
+  image: primeplusImg, 
+  tech: [
+    "React", "Vite", "React Router", "Tailwind CSS",
+    "Node.js", "Express", "MongoDB (Mongoose)",
+    "JWT Auth", "Axios", "Netlify (client)", "Render (server)"
+  ],
+  live: "https://schoolmanagementsystem07.netlify.app/",
+ 
+  github: "https://github.com/AkashdeepSingh2002R/SchoolManagementSystem",
+  features: [
+    "Role-based login & routing (Admin/Teacher/Student/Parent) with JWT",
+    "Dashboards: Classes, Students, Teachers, Timetable, Attendance, Grades",
+    "Announcements & Newsletters (create, list, translate, AI-assisted drafting)",
+    "Assignments with improved AI generator (objectives/steps/rubric)",
+    "Events & Meetings calendar; Messages/Conversations",
+    "Search across students/classes/teachers",
+    "Multi-language: translate title/body via server endpoint",
+    "Mobile-friendly UI (Tailwind) & persistent session (localStorage/JWT)"
+  ],
+  responsibilities: [
+    "Designed REST API (Express + Mongoose); secured routes with JWT middleware",
+    "Implemented robust CORS and environment-based allowlist for deploys",
+    "Integrated AI endpoints for announcements/newsletters/assignments",
+    "Built React dashboards, forms, and search with Axios data layer",
+    "Set up deploys: Netlify (client), Render (server), MongoDB Atlas",
+    "Implemented translation route and UI for one-click language switching"
+  ],
+  credentials: [
+    "Admin: admin@punjabschool.edu.in / admin123",
+    "Teacher: teacher@punjabschool.edu.in / teacher123",
+    "Student: student@punjabschool.edu.in / student123"
+  ]
+}
+,
   {
   title: "WorldWise — Travel Logging Map App",
   subtitle: "Save cities you’ve visited with notes & dates",
   description:
     "A React + Vite app that lets you click a world map to add cities you’ve visited, with date and notes. Uses reverse-geocoding to auto-fill city/country, stores data via json-server, and organizes your trips by cities and countries. Includes geolocation and a protected app area with a fake auth flow.",
-  image: worldWideImg, // swap with a real screenshot when ready
+  image: worldWideImg, 
   tech: ["React", "Vite", "React Router", "Leaflet", "react-leaflet", "json-server", "CSS Modules"],
-  live: "https://worldwiseadventureapp.netlify.app/", // add Netlify URL if you deploy
-  github: "https://github.com/AkashdeepSingh2002R/WorldWise", // change if different
+  live: "https://worldwiseadventureapp.netlify.app/",
+  github: "https://github.com/AkashdeepSingh2002R/WorldWise", 
   features: [
     "Interactive map (Leaflet) with city markers and popups",
     "Click map to add a city (lat/lng captured from clicks)",
@@ -98,7 +105,42 @@ const projects = [
     "Local API: json-server on http://localhost:9000 (script: npm run server)",
     "Data file: /data/cities.json",
   ],
+},
+{
+  title: "Job Application Tracker",
+  subtitle: "React-based tracker | Planned MERN + AI job status assistant",
+  description:
+    "A job application tracker built with React, designed to organize applications, statuses, companies, and notes. Currently a frontend app with local state & persistence, but planned to evolve into a full MERN stack project with real-time job status insights, AI-based progress tracking, and smart reminders/notifications.",
+  image: jobtrackerImg, 
+  tech: [
+    "React", "Vite", "React Router", "Tailwind CSS",
+    "localStorage (current persistence)",
+    "Planned: Node.js", "Express", "MongoDB", "AI API integrations"
+  ],
+  live: "https://aijobtracker.netlify.app/login", 
+  github: "https://github.com/AkashdeepSingh2002R/AI_job_tracker",
+  features: [
+    "Add, edit, and delete job applications",
+    "Track job details: company, role, application date, status, and notes",
+    "Search, filter, and sort job entries",
+    "LocalStorage persistence (data saved between sessions)",
+    "Planned: AI job status tracking and follow-up reminders",
+    "Planned: Email/SMS notification system for interview & deadlines",
+    "Planned: Exportable job history report"
+  ],
+  responsibilities: [
+    "Built React components for job CRUD (Create, Read, Update, Delete)",
+    "Added search, filtering, and sorting for better organization",
+    "Integrated localStorage for persistence",
+    "Designed responsive UI with Tailwind CSS",
+    "Planned backend with Express + MongoDB for scalable storage",
+    "Planned AI integration for smart tracking & notifications"
+  ],
+  credentials: [
+    "Demo: user@demo.com / demo123" // optional, add if you set up demo login later
+  ]
 }
+
 
 ];
 
