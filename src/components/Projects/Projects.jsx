@@ -7,6 +7,7 @@ import neighbourImg from "../../assets/neighbournet.png";
 import primeplusImg from "../../assets/sms.png"; // keep import, just reusing it as the image slot
 import worldWideImg from "../../assets/worldwise.png"
 import jobtrackerImg from "../../assets/AI_job_tracker.png"
+import fastPizzaImg from "../../assets/fastreactpizza.png"
 
 const projects = [
   {

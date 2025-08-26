@@ -155,8 +155,8 @@
         }
         
         .hero-name {
-            font-size: clamp(3rem, 10vw, 6rem);
-            font-weight: 300;
+            font-size: clamp(2rem, 10vw, 3rem);
+            font-weight: 150;
             color: #ffffff;
             margin-bottom: 1.5rem;
             line-height: 1.1;
@@ -183,27 +183,46 @@
             flex-wrap: wrap;
         }
         
-        .btn {
-            padding: 1.2rem 2.5rem;
-            border: 2px solid #5a8dee;
-            background: transparent;
-            color: #5a8dee;
-            text-decoration: none;
-            border-radius: 0;
-            font-size: 1rem;
-            font-weight: 400;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            display: inline-block;
-            text-transform: uppercase;
-        }
-        
-        .btn:hover {
-            background: #5a8dee;
-            color: #0f1419;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(90, 141, 238, 0.3);
-        }
+       .btn {
+  padding: 0.9rem 2rem;
+  border: 2px solid #5a8dee;
+  background: transparent;
+  color: #5a8dee;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect */
+.btn:hover {
+  background: #5a8dee;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(90, 141, 238, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Pressed effect */
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 10px rgba(90, 141, 238, 0.3);
+}
+
+/* Focus outline for accessibility */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(90, 141, 238, 0.4);
+}
+
         
         /* About Section - Styled like reference */
         .about {

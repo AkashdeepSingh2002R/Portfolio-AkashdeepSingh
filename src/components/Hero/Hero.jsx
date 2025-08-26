@@ -1,10 +1,18 @@
 import React from "react";
 import "./Hero.css";
 import { Link } from "react-router-dom";
-
+import profileImg from '../../assets/profile.jpg';
 const Hero = () => (
   <section className="hero" id="home">
     <div className="hero-content">
+      <div>
+       <div className="profile-section">
+            <div className="profile-image">
+              <div className="profile-glow"></div>
+              <img src={profileImg} alt="Akashdeep Singh" className="profile-img" />
+            </div>
+          </div>
+          </div>
       <h1 className="hero-name">Hi, I'm Akashdeep Singh</h1>
       <p className="hero-title">Full-Stack Developer | MERN Stack | Open to Work</p>
       <div className="cta-buttons">
