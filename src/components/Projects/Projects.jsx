@@ -32,6 +32,38 @@ const projects = [
       "Wrote unit tests for core services",
     ],
   },
+  {
+  title: "Fast React Pizza — Order App",
+  subtitle: "React + Redux Toolkit + Tailwind",
+  description:
+    "A fast pizza ordering SPA built with React, Redux Toolkit, and Tailwind. Browse a dynamic pizza menu, add/remove items to cart, adjust quantities, and place orders. Uses slices, async thunks, and persisted state for a snappy UX.",
+  image: fastPizzaImg,
+  tech: [
+    "React",
+    "Vite",
+    "Redux Toolkit",
+    "React Router",
+    "Tailwind CSS",
+    "Async Thunks"
+  ],
+  live: "https://pizzabyreact.netlify.app/", 
+  github: "https://github.com/AkashdeepSingh2002R/fast_react_pizza", 
+  features: [
+    "Global state with Redux Toolkit slices (cart/user/order)",
+    "Add/remove/update quantities; derived totals and selectors",
+    "Async order submission & status fetch (thunks)",
+    "Responsive Tailwind UI with utility classes & components",
+    "Route-based code structure with protected/guarded flows",
+    "LocalStorage cart persistence"
+  ],
+  responsibilities: [
+    "Designed Redux slices/selectors and async thunks",
+    "Built cart & checkout flows with React Router",
+    "Styled responsive UI using Tailwind",
+    "Persisted cart in localStorage and handled rehydration"
+  ]
+}
+,
 {
   title: "School Management System — Full-Stack (React + Node)",
   subtitle: "BlueBell Public school | Role-based portal with AI & translation",
